@@ -89,6 +89,23 @@ public class ASTNodeVisitor extends ASTVisitor {
 		return true;
 	}
  
+//得到APIsq 
+	@Override
+	public boolean visit(MethodInvocation node) {
+		if((m!=null) &&(node.getExpression()!=null)) {
+		if(m.containsKey(node.getExpression().toString())) {
+			APIsq.add(m.get(node.getExpression().toString())+"."+node.getName().toString());//输出调用方法的对象
+			tokens.add(node.getName().toString());
+			//System.out.println(node.arguments());//方法中的参数
+	 	//System.out.println(node.typeArguments());
+		}else {
+			APIsq.add(node.getExpression().toString()+"."+node.getName());
+			tokens.add(node.getExpression().toString());
+		 	tokens.add(node.getName().toString());
+			}
+		}
+	 return true;  
+	}
 	
 	//统一输出方法名 tokens APIsq 和注释
 	@Override
@@ -120,7 +137,9 @@ public class ASTNodeVisitor extends ASTVisitor {
 		return true;
 	}
 	
-	
+	public void APISort(ArrayList<String> APIsq) {
+		APIsq.sort(null);
+	}
 
 	public String[] Tokens1(Set<String> tokens) {
 		String[] t= tokens.toArray(new String[0]);
