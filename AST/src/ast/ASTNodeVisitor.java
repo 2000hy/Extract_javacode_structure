@@ -120,9 +120,7 @@ public class ASTNodeVisitor extends ASTVisitor {
 		return true;
 	}
 	
-	public void APISort(ArrayList<String> APIsq) {
-		APIsq.sort(null);
-	}
+	
 
 	public String[] Tokens1(Set<String> tokens) {
 		String[] t= tokens.toArray(new String[0]);

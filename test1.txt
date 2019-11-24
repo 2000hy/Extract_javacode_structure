@@ -1,0 +1,2 @@
+删除了Extract_javacode_structure\AST\src\ast中的ASTNodeVisitor.java中的public void APISort()。
+调换了Extract_javacode_structure\AST\src\ast中的Main.java中两个函数的位置。

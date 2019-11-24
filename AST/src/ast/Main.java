@@ -9,6 +9,15 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 public class Main {
 	public static String path = "E:\\\\ASTdata\\\\test";
 	public static String path2;
+	
+	private static String readDataFromConsole(String prompt) {
+		    Console console = System.console();
+		    if (console == null) {
+		      throw new IllegalStateException("Console is not available!");
+		    }
+		    return console.readLine(prompt);
+		  }
+
 	public Main(String path1) {
 		CompilationUnit comp = GenAST.getCompilationUnit(path1);
 		ASTNodeVisitor visitor = new ASTNodeVisitor();
@@ -33,11 +42,5 @@ public class Main {
 	}
 	
 	
-	  private static String readDataFromConsole(String prompt) {
-		    Console console = System.console();
-		    if (console == null) {
-		      throw new IllegalStateException("Console is not available!");
-		    }
-		    return console.readLine(prompt);
-		  }
+	
 }
